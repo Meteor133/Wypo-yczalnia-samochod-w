@@ -1,14 +1,17 @@
-//
-// Created by Mateusz on 18.03.2026.
-//
-
-#ifndef UNTITLED3_ADMIN_H
-#define UNTITLED3_ADMIN_H
 #include "Użytkownik.h"
+#pragma once
 
+class Admin : public Użytkownik {
+public:
+    Admin(std::string l, std::string h) : Użytkownik(l, h, "Pracownik") {
 
-class Admin : public Użytkownik{
+    }
+
+    void wyswietlMenu() const override {
+        std::cout << "--- MENU PRACOWNIKA ---" << std::endl;
+        std::cout << "1. Wyświetl pelna liste floty pojadow"<<std::endl;
+        std::cout << "2. Dodaj nowy pojazd do systemu"<<std::endl;
+        std::cout << "0. Wyloguj się "<<std::endl;
+        std::cout<< "Wybór: "<<std::endl;
+    }
 };
-
-
-#endif //UNTITLED3_ADMIN_H

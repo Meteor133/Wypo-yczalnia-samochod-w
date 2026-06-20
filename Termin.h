@@ -1,13 +1,22 @@
-//
-// Created by Mateusz on 19.06.2026.
-//
-
-#ifndef UNTITLED3_TERMIN_H
-#define UNTITLED3_TERMIN_H
-
-
+#pragma once
 class Termin {
+private:
+    int dzienStart;
+    int dzienKoniec;
+public:
+    Termin(int start = 0, int koniec = 0) : dzienStart(start), dzienKoniec(koniec) {
+
+    }
+
+    int getStart() const {
+        return dzienStart;
+    }
+    int getKoniec() const {
+        return dzienKoniec;
+    }
+
+
+    bool operator==(const Termin& inny) const {
+        return !(dzienKoniec < inny.dzienStart || dzienStart > inny.dzienKoniec);
+    }
 };
-
-
-#endif //UNTITLED3_TERMIN_H

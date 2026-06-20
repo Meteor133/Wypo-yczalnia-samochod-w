@@ -1,14 +1,16 @@
-//
-// Created by Mateusz on 18.03.2026.
-//
-
-#ifndef UNTITLED3_SAMOCHÓDLUKSUSOWY_H
-#define UNTITLED3_SAMOCHÓDLUKSUSOWY_H
 #include "Samochód.h"
+#pragma once
+class SamochódLuksusowy : public Samochód {
+public:
+    SamochódLuksusowy(std::string ma, std::string mo, int r, int p, double c, std::string kat)
+        : Samochód(ma, mo, r, p, c, kat) {
 
+    }
 
-class SamochódLuksusowy : public Samochód{
+    std::string getTypNapedu() const override {
+        return "Spalinowy";
+    }
+    void wyswietl() const override {
+        Samochód::wyswietl();
+        std::cout << " [Spalinowy]" << std::endl; }
 };
-
-
-#endif //UNTITLED3_SAMOCHÓDLUKSUSOWY_H

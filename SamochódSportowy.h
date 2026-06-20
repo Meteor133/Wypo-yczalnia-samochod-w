@@ -1,14 +1,13 @@
-//
-// Created by Mateusz on 18.03.2026.
-//
+#pragma once
+class SamochódSportowy : public Samochód {
+public:
+    SamochódSportowy(std::string ma, std::string mo, int r, int p, double c, std::string kat)
+        : Samochód(ma, mo, r, p, c, kat) {
 
-#ifndef UNTITLED3_SAMOCHÓDSPORTOWY_H
-#define UNTITLED3_SAMOCHÓDSPORTOWY_H
-#include "Samochód.h"
+    }
 
-
-class SamochódSportowy : public Samochód{
+    std::string getTypNapedu() const override { return "Elektryczny"; }
+    void wyswietl() const override {
+        Samochód::wyswietl();
+        std::cout << " [Elektryczny]" << std::endl; }
 };
-
-
-#endif //UNTITLED3_SAMOCHÓDSPORTOWY_H

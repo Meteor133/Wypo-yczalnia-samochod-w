@@ -1,70 +1,55 @@
-//
-// Created by Mateusz on 18.03.2026.
-//
-
-#ifndef UNTITLED3_SAMOCHÓD_H
-#define UNTITLED3_SAMOCHÓD_H
-
+#include <iostream>
+#pragma once
+#include "Termin.h"
 
 class Samochód {
+protected:
+    std::string marka;
+    std::string model;
+    int rocznik;
+    int przebieg;
+    double cenaZaDobe;
+    std::string kategoria;
+    std::vector<Termin> zarezerwowaneTerminy;
 public:
-    [[nodiscard]] String marka1() const {
+    Samochód(std::string ma, std::string mo, int r, int p, double c, std::string kat)
+        : marka(ma), model(mo), rocznik(r), przebieg(p), cenaZaDobe(c), kategoria(kat) {
+
+    }
+
+    virtual ~Samochód() {
+
+    }
+
+
+    virtual void wyswietl() const {
+        std::cout << marka << " " << model << " (" << rocznik << ") | Kat: " << kategoria
+             << " | Przebieg: " << przebieg << " km | Cena: " << cenaZaDobe << " zl/dobe";
+    }
+
+    virtual std::string getTypNapedu() const = 0;
+
+    std::string getMarka() const {
         return marka;
     }
-
-    void set_marka(const String &marka) {
-        this->marka = marka;
-    }
-
-    [[nodiscard]] String model1() const {
+    std::string getModel() const {
         return model;
     }
-
-    void set_model(const String &model) {
-        this->model = model;
+    std::string getKategoria() const {
+        return kategoria;
+    }
+    double getCena() const {
+        return cenaZaDobe;
     }
 
-    [[nodiscard]] int rok_produkcji() const {
-        return rokProdukcji;
+    bool czyWolny(const Termin& nowyTermin) const {
+        for (const auto& t : zarezerwowaneTerminy) {
+            if (t == nowyTermin) return false;
+        }
+        return true;
     }
 
-    void set_rok_produkcji(int rok_produkcji) {
-        rokProdukcji = rok_produkcji;
+    void dodajTermin(const Termin& t) {
+        zarezerwowaneTerminy.push_back(t);
     }
-
-    [[nodiscard]] int przebieg1() const {
-        return przebieg;
-    }
-
-    void set_przebieg(int przebieg) {
-        this->przebieg = przebieg;
-    }
-
-    [[nodiscard]] int cena_wypożyczenia() const {
-        return cenaWypożyczenia;
-    }
-
-    void set_cena_wypożyczenia(int cena_wypożyczenia) {
-        cenaWypożyczenia = cena_wypożyczenia;
-    }
-
-    Samochód(const String &marka, const String &model, int rok_produkcji, int przebieg, int cena_wypożyczenia)
-        : marka(marka),
-          model(model),
-          rokProdukcji(rok_produkcji),
-          przebieg(przebieg),
-          cenaWypożyczenia(cena_wypożyczenia) {
-    }
-
-private:
-    String marka;
-    String model;
-    int rokProdukcji;
-    int przebieg;
-    int cenaWypożyczenia;
-
-
 };
-
-
-#endif //UNTITLED3_SAMOCHÓD_H
