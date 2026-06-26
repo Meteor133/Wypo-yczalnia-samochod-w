@@ -10,9 +10,9 @@ int main() {
     Użytkownik* zalogowany = nullptr;
 
     std::cout << " SYSTEM REZERWACJI I WYPOZYCZALNI " << std::endl;
-    std::cout << "1. Zaloguj się"<<std::endl;
+    std::cout << "1. Zaloguj sie"<<std::endl;
     std::cout << "2. Zarejestruj konto klienta" << std::endl;
-    std::cout << "Wybór: "<< std::endl;
+    std::cout << "Wybor: "<< std::endl;
     int start; std::cin >> start;
 
     if (start == 2) {
@@ -23,14 +23,14 @@ int main() {
         std::cin >> h;
         wp.użytkownicy.push_back(new Klient(l, h));
         wp.zapiszBazeDoPliku();
-        std::cout << "Rejestracja pomyślna! Uruchom program ponownie, aby sie zalogować." << std::endl;
+        std::cout << "Rejestracja pomyslna! Uruchom program ponownie, aby sie zalogowac." << std::endl;
         return 0;
     }
 
     std::string l, h;
     std::cout << "Login: ";
     std::cin >> l;
-    std::cout << "Hasło: ";
+    std::cout << "Haslo: ";
     std::cin >> h;
 
     for (auto u : wp.użytkownicy) {
@@ -41,7 +41,7 @@ int main() {
     }
 
     if (!zalogowany) {
-        std::cout << "Błędne dane logowania!" << std::endl;
+        std::cout << "Bledne dane logowania!" << std::endl;
         return 0;
     }
 
@@ -65,7 +65,7 @@ int main() {
                 std::cout << "Cena za dobe: "; std::cin >> c;
                 std::cout << "Kategoria (Osobowy/SUV/Dostawczy): "; std::cin >> kat;
                 wp.flota.push_back(new SamochódLuksusowy(ma, mo, r, p, c, kat));
-                std::cout << "Pojazd został pomyślnie dodany do floty przez pracownika!" << std::endl;
+                std::cout << "Pojazd zostal pomyślnie dodany do floty przez pracownika" << std::endl;
             }
         }
         else {
@@ -77,8 +77,8 @@ int main() {
             else if (wybor == 2) {
                 int indeks, startD, koniecD;
                 std::cout << "Wybierz ID samochodu (0-" << wp.flota.size() - 1 << "): "; std::cin >> indeks;
-                std::cout << "Dzień rozpoczecia (1-365): "; std::cin >> startD;
-                std::cout << "Dzień zakonczenia (1-365): "; std::cin >> koniecD;
+                std::cout << "Dzien rozpoczecia (1-365): "; std::cin >> startD;
+                std::cout << "Dzien zakonczenia (1-365): "; std::cin >> koniecD;
 
                 Termin nowyTermin(startD, koniecD);
 
@@ -86,13 +86,13 @@ int main() {
                     wp.zapiszLogRezerwacji(aktualnyKlient->getLogin(), wp.flota[indeks]->getMarka(), wp.flota[indeks]->getModel(), nowyTermin);
                     std::cout << "Sukces! Pojazd został zarezerwowany." << std::endl;
                 } else {
-                    std::cout << "Bląd! Samochód jest zajęty w podanym terminie." << std::endl;
+                    std::cout << "Blad! Samochod jest zajety w podanym terminie." << std::endl;
                 }
             }
             else if (wybor == 3) {
                 if (aktualnyKlient) {
                     std::cout << "--- TWOJA LISTA AUT ---" << std::endl;
-                    if (aktualnyKlient->getWypożyczonePojazdy().empty()) std::cout << "Brak wypozyczeń." << std::endl;
+                    if (aktualnyKlient->getWypożyczonePojazdy().empty()) std::cout << "Brak wypozyczen." << std::endl;
                     for (auto p : aktualnyKlient->getWypożyczonePojazdy()) p->wyswietl();
                 }
             }

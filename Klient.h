@@ -28,10 +28,10 @@ public:
 
     void wyswietlMenu() const override {
         std::cout << "--- MENU KLIENTA ---" << std::endl;
-        std::cout << "1. Przegladaj katalog samochodów" <<std::endl;
-        std::cout << "2. Zarezerwuj samochód na wybrany okres"<<std::endl;
-        std::cout << "3. Wyświetl moje aktywne wypożyczenia"<<std::endl;
+        std::cout << "1. Przegladaj katalog samochodow" <<std::endl;
+        std::cout << "2. Zarezerwuj samochod na wybrany okres"<<std::endl;
+        std::cout << "3. Wyswietl moje aktywne wypozyczenia"<<std::endl;
         std::cout << "0. Wyloguj sie "<<std::endl;
-        std::cout <<"Wybór: "<<std::endl;
+        std::cout <<"Wybor: "<<std::endl;
     }
 };

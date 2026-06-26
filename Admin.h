@@ -9,9 +9,9 @@ public:
 
     void wyswietlMenu() const override {
         std::cout << "--- MENU PRACOWNIKA ---" << std::endl;
-        std::cout << "1. Wyświetl pelna liste floty pojadow"<<std::endl;
+        std::cout << "1. Wyswietl pelna liste floty pojadow"<<std::endl;
         std::cout << "2. Dodaj nowy pojazd do systemu"<<std::endl;
         std::cout << "0. Wyloguj się "<<std::endl;
-        std::cout<< "Wybór: "<<std::endl;
+        std::cout<< "Wybor: "<<std::endl;
     }
 };
